@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jual Motor Listrik Keren</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        header {
+            background: #1a1a1a;
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        nav .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 20px;
+            transition: transform 0.3s ease;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 1rem;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #ff0000;
+        }
+
+        /* Hamburger Menu */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            padding: 5px;
+        }
+
+        .hamburger span {
+            width: 30px;
+            height: 4px;
+            background: #ff0000;
+            margin: 3px 0;
+            border-radius: 2px;
+            transition: all 0.3s ease;
+        }
+
+        .hamburger.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .hamburger.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .hamburger.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: url('bg.png') no-repeat center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            padding-top: 60px;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero .btn {
+            background: #ff0000;
+            color: white;
+            padding: 0.8rem 2rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .hero .btn:hover {
+            background: #cc0000;
+        }
+
+        /* Products Section */
+        .products {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 0 20px;
+        }
+
+        .products h2 {
+            text-align: center;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .product-card {
+            background: #ffffff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .product-card img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .product-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .product-card h3 {
+            padding: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .product-card p {
+            padding: 0 1rem 1rem;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .product-card .price {
+            padding: 0 1rem;
+            font-weight: bold;
+            color: #ff0000;
+            font-size: 1.1rem;
+        }
+
+        .product-card .btn {
+            display: block;
+            margin: 1rem;
+            background: #ff0000;
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .product-card .btn:hover {
+            background: #cc0000;
+        }
+
+        /* Checkout Section */
+        .checkout {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .checkout h2 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .checkout form {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .checkout label {
+            font-weight: bold;
+        }
+
+        .checkout input,
+        .checkout select {
+            padding: 0.5rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .checkout button {
+            background: #ff0000;
+            color: white;
+            padding: 0.8rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .checkout button:hover {
+            background: #cc0000;
+        }
+
+        /* Footer */
+        footer {
+            background: #1a1a1a;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+
+        footer a {
+            color: #ff0000;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #cc0000;
+            text-decoration: underline;
+        }
+
+        /* Google Maps */
+        .map-container {
+            margin: 1rem auto;
+            max-width: 100%;
+            height: 300px;
+        }
+
+        .map-container iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        .footer-text {
+            margin-top: 1rem;
+        }
+
+        /* Mobile Menu */
+        @media (max-width: 768px) {
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: fixed;
+                top: 60px;
+                right: 0;
+                width: 250px;
+                height: calc(100vh - 60px);
+                background: linear-gradient(180deg, #1a1a1a, #cc0000);
+                padding: 2rem;
+                transform: translateX(100%);
+                box-shadow: -5px 0 10px rgba(0, 0, 0, 0.3);
+            }
+
+            nav ul.active {
+                display: flex;
+                transform: translateX(0);
+            }
+
+            nav ul li {
+                margin: 1rem 0;
+            }
+
+            nav ul li a {
+                font-size: 1.2rem;
+                padding: 0.5rem 1rem;
+                display: block;
+                border-radius: 5px;
+            }
+
+            nav ul li a:hover {
+                background: #ff0000;
+                color: #ffffff;
+            }
+
+            .hamburger {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .product-card {
+                margin: 0 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <nav>
+            <div class="logo">Toko Niaga</div>
+            <ul id="nav-menu">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#products">Produk</a></li>
+                <li><a href="#checkout">Pesan</a></li>
+                <li><a href="#contact">Kontak</a></li>
+            </ul>
+            <div class="hamburger" id="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div>
+            <h1>Motor Listrik Keren untuk Masa Depan</h1>
+            <p>Nikmati perjalanan ramah lingkungan dengan gaya!</p>
+            <a href="#products" class="btn">Lihat Koleksi</a>
+        </div>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2>Koleksi Motor Listrik</h2>
+        <div class="product-grid">
+            <!-- Product 1 -->
+            <div class="product-card">
+                <img src="m60.jpeg" alt="Motor Listrik 1">
+                <h3>Elektrik Z1</h3>
+                <p>Kecepatan: 80 km/jam<br>Jarak: 120 km<br>Baterai: 60V 20Ah</p>
+                <p class="price">Rp 25.000.000</p>
+                <a href="#checkout" class="btn">Pesan Sekarang</a>
+            </div>
+            <!-- Product 2 -->
+            <div class="product-card">
+                <img src="m75.jpeg" alt="Motor Listrik 2">
+                <h3>Elektrik X2</h3>
+                <p>Kecepatan: 100 km/jam<br>Jarak: 150 km<br>Baterai: 72V 30Ah</p>
+                <p class="price">Rp 35.000.000</p>
+                <a href="#checkout" class="btn">Pesan Sekarang</a>
+            </div>
+            <!-- Product 3 -->
+            <div class="product-card">
+                <img src="t3spro.jpeg" alt="Motor Listrik 3">
+                <h3>Elektrik Pro</h3>
+                <p>Kecepatan: 120 km/jam<br>Jarak: 200 km<br>Baterai: 72V 40Ah</p>
+                <p class="price">Rp 45.000.000</p>
+                <a href="#checkout" class="btn">Pesan Sekarang</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Checkout Section -->
+    <section class="checkout" id="checkout">
+        <h2>Formulir Pemesanan</h2>
+        <form id="checkout-form">
+            <label for="name">Nama Lengkap</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="phone">Nomor Telepon</label>
+            <input type="tel" id="phone" name="phone" required>
+
+            <label for="product">Pilih Motor</label>
+            <select id="product" name="product" required>
+                <option value="Elektrik Z1">Elektrik Z1 - Rp 25.000.000</option>
+                <option value="Elektrik X2">Elektrik X2 - Rp 35.000.000</option>
+                <option value="Elektrik Pro">Elektrik Pro - Rp 45.000.000</option>
+            </select>
+
+            <label for="address">Alamat Pengiriman</label>
+            <input type="text" id="address" name="address" required>
+
+            <button type="submit">Kirim Pesanan</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="map-container">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.041756548528!2d110.98191661477635!3d-7.594397794525076!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e7a18a5b8dc15a5%3A0xe261cbe8f780f780!2sJl.%20Derpoyudo%2C%20Josari%2C%20Popongan%2C%20Kec.%20Karanganyar%2C%20Kabupaten%20Karanganyar%2C%20Jawa%20Tengah%2057715!5e0!3m2!1sid!2sid!4v1698765432100!5m2!1sid!2sid" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+        <div class="footer-text">
+            <p>Toko Niaga © 2025. Semua Hak Dilindungi.</p>
+            <p>Kontak: <a href="mailto:info@toko-niaga.com">info@toko-niaga.com</a> | <a href="https://wa.me/628123456789">+62 812-3456-789</a></p>
+            <p><a href="#">Instagram</a> | <a href="#">Facebook</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Hamburger Menu Toggle
+        const hamburger = document.getElementById('hamburger');
+        const navMenu = document.getElementById('nav-menu');
+
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when clicking a link
+        navMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !hamburger.contains(e.target)) {
+                hamburger.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
+
+        // Form submission handling
+        document.getElementById('checkout-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Pesanan Anda telah dikirim! Kami akan menghubungi Anda segera.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
